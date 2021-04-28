@@ -10,6 +10,8 @@ Mister is an expensive piece of enthusiast hardware. Because I am handy with the
     * The Mister can output analog (CRT) and digital (HDMI) video formats for all the cores it supports.
 * I don't have an OSSC, splitters, etc to get an RGB modded console into my CRT and capture card for streaming at the same time,
     * Mister can output to CRT and HDMI at the same time, with independent settings. I can send pure clean digital signal to my viewers, while I enjoy the game at much better display latency on a CRT.
+    * Comparison showing my CRT two frames ahead of my 144hz low latency gaming LCD:
+    ![Latency Comparison](/pics/latency.png)
 * I play games that can be very sensitive to input latency,
     * Mister can poll USB controllers at 1000hz vs 125hz on Windows. This lessens the chance of a polling mismatch randomly delaying my inputs by an additional frame.
     * Mister supports special adapters called "SNAC" that give you a true port for the console you're playing. I have one for NES, and SNES. They aren't subject to USB polling, they are polled identically to the real systems. I could plug in a Nintendo Zapper or Super Scope 6 and it would work fine.
