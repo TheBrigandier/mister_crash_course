@@ -2,7 +2,7 @@
 Got a lot of buds buying in to [Mister FPGA](https://www.retrorgb.com/mister.html) retro gaming system, particularly buying the kit found at [MisterAddons](https://misteraddons.com/products/mister-bundles). This doc aims to get you set up really fast; not by holding your hand, but by pointing you to some resources so you aren't searching for hours.
 
 # Should I Buy a Mister?
-Mister is an expensive piece of enthusiast hardware. Because I am handy with the tech, people reach out to me asking for justification or to argue why they think X is better or why they think Mister is a waste. For those people that might be absolutely true. Here's some reasons *I* bought a Mister and how the Mister provides value:
+Mister is an expensive piece of enthusiast hardware. Because I am handy with the tech, people reach out to me asking for justification (or friends try to get me to talk other people into getting them). It's definitely NOT for everyone. Here's some reasons *I* bought a Mister and how the Mister provides value to me:
 
 * I don't have many consoles,
     * The Mister has support for many, many consoles, arcade systems, and legacy computer platforms.
