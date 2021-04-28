@@ -17,6 +17,8 @@ Mister is an expensive piece of enthusiast hardware. Because I am handy with the
     * Mister supports special adapters called "SNAC" that give you a true port for the console you're playing. I have one for NES, and SNES. They aren't subject to USB polling, they are polled identically to the real systems. I could plug in a Nintendo Zapper or Super Scope 6 and it would work fine.
 * I value accuracy,
     * Mister is hardware replication via FPGA, similar to how SuperNT handles SNES. This isn't traditional emulation. This is extremely accurate hardware replication that matches up to the real hardware down to the clock cycles. Games work exactly the same as real hardware, including all slow downs and other bugginess you'd see on the real console.
+* I value my money,
+    * I primarily wanted an option for SNES games. SuperNT was out of stock, and combined with a flash cart just as expensive. It also didn't support all the other systems or simultaneous CRT out. Mister was a no brainer in comparison.
 
 If none of the above really matters that much to you, then save your cash and use Retroarch (see [Runahead Latency Reduction](https://www.libretro.com/index.php/retroarch-1-7-2%E2%80%8A-%E2%80%8Aachieving-better-latency-than-original-hardware-through-new-runahead-method/#:~:text=Once%20the%20game%20is%20running,you%20want%20to%20run%20ahead.)). For most people and games, it's likely just fine.
 
