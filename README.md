@@ -7,7 +7,7 @@ Mister is an expensive piece of enthusiast hardware. Because I am handy with the
 * I don't have many consoles,
     * The Mister has support for many, many consoles, arcade systems, and legacy computer platforms.
 * I sure don't have many consoles with RGB mod or HDMI outs,
-    * The Mister can output analog (CRT) and digital (HDMI) video formats.
+    * The Mister can output analog (CRT) and digital (HDMI) video formats for all the cores it supports.
 * I don't have an OSSC, splitters, etc to get an RGB modded console into my CRT and capture card for streaming at the same time,
     * Mister can output to CRT and HDMI at the same time, with independent settings. I can send pure clean digital signal to my viewers, while I enjoy the game at much display latency on a CRT.
 * I play games that can be very sensitive to input latency,
@@ -16,7 +16,7 @@ Mister is an expensive piece of enthusiast hardware. Because I am handy with the
 * I value accuracy,
     * Mister is hardware replication via FPGA, similar to how SuperNT handles SNES. This isn't traditional emulation. This is extremely accurate hardware replication that matches up to the real hardware down to the clock cycles. Games work exactly the same as real hardware, including all slow downs and other bugginess you'd see on the real console.
 
-If none of the above really matters that much to you, then save your cash and use Retroarch. For most people and games, it's likely just fine.
+If none of the above really matters that much to you, then save your cash and use Retroarch (see [Runahead Latency Reduction](https://www.libretro.com/index.php/retroarch-1-7-2%E2%80%8A-%E2%80%8Aachieving-better-latency-than-original-hardware-through-new-runahead-method/#:~:text=Once%20the%20game%20is%20running,you%20want%20to%20run%20ahead.)). For most people and games, it's likely just fine.
 
 ## What to Buy
 On the [MisterAddons Shop Page](https://misteraddons.com/products/mister-bundles), they have fully built out Mister bundles, with the option between `Standard I/O` and `Digital I/O`. 99.9% of you are going to want `Standard I/O`, as it connects to both HDMI and CRT at the same time (great for streaming). The `Digital I/O` option is for people who may want to add additional unknown hardware to the system later on as it doesn't use as many expansion pins, leaving them available to you for whatever reason you may have.
