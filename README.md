@@ -2,21 +2,21 @@
 Got a lot of buds buying in to [Mister FPGA](https://www.retrorgb.com/mister.html) retro gaming system, particularly buying the kit found at [MisterAddons](https://misteraddons.com/products/mister-bundles). This doc aims to get you set up really fast; not by holding your hand, but by pointing you to some resources so you aren't searching for hours.
 
 # Should I Buy a Mister?
-Mister is an expensive piece of enthusiast hardware. Because I am handy with the tech, people reach out to me asking for justification (or friends try to get me to talk other people into getting them). It's definitely NOT for everyone. Here's some reasons *I* bought a Mister and how the Mister provides value to me:
+Mister is an expensive piece of enthusiast hardware and isn't for everyone. Here's some reasons *I* bought a Mister and how the Mister provides value to me:
 
-* I don't have many consoles,
+* I don't have many original consoles,
     * The Mister has support for many, many consoles, arcade systems, and legacy computer platforms.
-* I sure don't have many consoles with RGB mod or HDMI outs,
-    * The Mister can output analog (CRT) and digital (HDMI) video formats for all the cores it supports.
-* I don't have an OSSC, splitters, etc to get an RGB modded console into my CRT and capture card for streaming at the same time,
-    * Mister can output to CRT and HDMI at the same time, with independent settings. I can send pure clean digital signal to my viewers, while I enjoy the game at much better display latency on a CRT.
-    * Comparison showing my CRT two frames ahead of my 144hz low latency gaming LCD:
-    ![Latency Comparison](/pics/latency.png)
+* I don't have the time, money, or expertise to get all the consoles I want modded to support both RGB and HDMI out,
+    * The Mister can output analog (RGBs, etc) and digital (HDMI) video formats for all the cores it supports.
+* I don't have an OSSC, splitters, or other hardware required to play my systems using a CRT and capture them for streaming on Twitch,
+    * Mister can output to CRT and HDMI at the same time, with independent settings. I can send pure clean digital signal to my viewers via a common capture card (Elgato in my case), while I enjoy the game at much better display latency / authenticity on a CRT.
 * I play games that can be very sensitive to input latency,
     * Mister can poll USB controllers at 1000hz vs 125hz on Windows. This lessens the chance of a polling mismatch randomly delaying my inputs by an additional frame.
-    * Mister supports special adapters called "SNAC" that give you a true port for the console you're playing. I have one for NES, and SNES. They aren't subject to USB polling, they are polled identically to the real systems. I could plug in a Nintendo Zapper or Super Scope 6 and it would work fine.
+    * Mister supports special adapters called "SNAC" that give you a accurately behaving port for the console you're playing. I have one for NES, and SNES. They aren't subject to USB polling, they are polled identically to the real systems. I could plug in a Nintendo Zapper or Super Scope 6 and it would work fine.
+    * Analog output to CRT has much less latency compared to an LCD screen. Here's a comparison showing my CRT two frames ahead of my 144hz low latency gaming LCD:
+    ![Latency Comparison](/pics/latency.png)
 * I value accuracy,
-    * Mister is hardware replication via FPGA, similar to how SuperNT handles SNES. This isn't traditional emulation. This is extremely accurate hardware replication that matches up to the real hardware down to the clock cycles. Games work exactly the same as real hardware, including all slow downs and other bugginess you'd see on the real console.
+    * Mister is hardware replication via FPGA, similar to how SuperNT handles SNES. This isn't traditional emulation. This is extremely accurate hardware replication that matches up to the real hardware down to the clock cycles. Games work nearly exactly the same as real hardware, including all slow downs and other bugginess you'd see on the real console.
 * I value my money,
     * I primarily wanted an option for SNES games. SuperNT was out of stock, and combined with a flash cart just as expensive. It also didn't support all the other systems or simultaneous CRT out. Mister was a no brainer in comparison.
 
@@ -61,6 +61,29 @@ If your Mister can be permanently on your network, I would HIGHLY recommend enab
 Once complete, you can connect using an SSH client (like PuTTY); or, you can use an SCP client like [WinSCP](https://winscp.net/eng/download.php) to connect and do file transfers.
 
 When connecting in this way, your usual SD card content will be in `/media/fat/` directory.
+
+### Streaming Settings
+A lot of you are probably reading this guide because I sent it to you on Twitch, meaning a lot of you are streamers. Just wanted to include some common settings I set that help with quality:
+
+#### System Video Settings
+* In **Scripts > ini_settings**, set `video_mode` to match your display resolution (assuming you're using a TV or monitor).
+* In **Scripts > ini_settings**, set `vscale_mode` to `Use integer scale only`. This will give you some bars, but will precisely size your content to fit your display/capture pixels vertically. This does not handle horizontally, more on that in the Game Core Settings below!
+* In **Scripts > ini_settings**, you have a few options for `vsync_adjust`:
+  * If you are playing an LCD:
+    * Set it to `Low lag`. This will be the best feeling to play, but may cause capture card glitches when swapping between cores. If this happens you can usually fix it by a quick deactivate/activate of your capture card in OBS. If not, try the next option.
+    * Set it to `Match core frequency`. Your capture card may like this better, but you'll have more input latency. If this doesn't work, then use `Match display frequency` and have even more input latency, but it should at least be playable.
+  * If you are playing on CRT and capturing the HDMI out for stream:
+    * Same priority as above, just set it to whatever looks best and makes your capture card happy. The CRT output will be unaffected by this setting generally.
+* In **Scripts > ini_settings**, set `hdmi_limit` to match your stream color space / capture card settings color space. In general you'll be using Rec 709, so this should be set to `On` to match.
+
+#### Game Core Settings
+After changing these settings, be sure to open the menu, press RIGHT to go to the second menu page, and select `Save Settings` so they will persist! Some of these settings may require you to load a ROM to adjust them!
+
+* Almost all cores need to have `Autosave` ticked to `On`. This is set to `Off` by default for some users that have Misters in arcade cabinets that are on 24/7 doing sdcard writes, it can wear the card out. If you don't have this on, you run the risk of losing save data if you forget to save backup ram!
+* Set `Scale filter` (usually on the second menu page, press right to see it) to `Custom`, then select a filter below that setting to apply to your HDMI output. Normally this is done to apply scanline filters, but for streaming you want to apply `Interpolation Sharp` on nearly all cores.
+  * For SNES, there's a special `SNES Interpolation (Sharp)` filter, use it instead for SNES core because it handles a SNES edge case,
+  * **Why should I use this, I can't see it doing anything?**
+    * The effect is subtle. Playing the games at proper aspect ratios does not output square pixels, the HDMI output makes them fit to the nearest pixels. If you have the `vscale_mode` set to `Use integer scaling only` in INI settings above, this fixes it vertically but doesn't do anything for horizontally. If you really get up close and personal to the display, you'll notice some pixels appear wider than others. This may not seem like much of a problem, but on games that use small repeating patterns (think bricks in Mario, or the dungeons in Zelda 2), scrolling the screen sideways causes a horrible looking "shimmer" or moire effect. Turning on interpolation causes the pixel edges to be interpolated (i.e., faded softly into the pixel next to it) when a pixel edge doesn't align properly to the display resolution. The result? All pixels look to be the same size, shimmer/moire disappears. The sacrifice? A slight sharpness decrease in some horizontal edges. It's worth it, trust me.
 
 ### Fin
 You should be set to play some games over HDMI. I will add more info here later regarding CRT, latency settings, etc.
